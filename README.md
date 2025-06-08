@@ -23,3 +23,8 @@ This is a **Streamlit** web app connected to a **PostgreSQL** database to manage
 - **PostgreSQL**
 - **psycopg2**
 - **pandas**
+
+##🔐 Default Login Credentials
+Username	Password
+teacher1	teacher1
+teacher2	teahcer2
