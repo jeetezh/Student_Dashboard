@@ -67,7 +67,7 @@ conn.commit()
 #user credential for login
 credential={
     "teacher1":"teacher1",
-    "teacher2":"teahcer2"
+    "teacher2":"teacher2"
 }
 
 
