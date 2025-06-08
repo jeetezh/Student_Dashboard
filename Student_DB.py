@@ -67,7 +67,7 @@ conn.commit()
 #user credential for login
 credential={
     "teacher1":"teacher1",
-    "teacher2":"teacher2"
+    "teacher2":"teahcer2"
 }
 
 
@@ -89,6 +89,14 @@ with st.sidebar.form("login"):
         else:
             st.sidebar.error("LOGIN failed")
 
+def update_percent(student_id):
+    cur.execute("SELECT physics, chemistry, maths FROM marks WHERE id = %s;", (student_id,))
+    updated_marks = cur.fetchone()
+    print(updated_marks)
+    if updated_marks:
+        percent = sum(updated_marks) / 3
+        cur.execute("UPDATE marks SET percent = %s WHERE id = %s;", (percent, student_id))
+        conn.commit()
 
 def view_function():                 #function to view data using join
     query1 = """
@@ -339,6 +347,7 @@ if st.session_state.flag:
                             cur.execute(update_query, (int(value), st.session_state.selected_student))
                             conn.commit()
                             st.success("Data updated successfully!")
+                            update_percent(st.session_state.selected_student)
         else:
             st.warning("NO DATA FOUND")
             st.image("source_image\gif_image.gif",width=300)
