@@ -4,7 +4,7 @@ import psycopg2
 
 
 
-PASSWORD="Ro0t@123"
+PASSWORD="Your password"
 PORT="5432"
 USER="postgres"
 HOST="localhost"
@@ -402,3 +402,4 @@ if st.session_state.flag:
 
 
                 
+
